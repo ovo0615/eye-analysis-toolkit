@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+*.aedt
+*.aedb/
+*.aedtresults/
+*.aedtz
+*.log
+*.mp4
+*.exe
+*.s2p
+*.s4p

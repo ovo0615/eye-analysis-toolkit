@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>QuickEye 自動化眼圖分析工具 - 操作說明</title>
+    <style>
+        body {
+            font-family: 'Calibri', '微軟正黑體', sans-serif;
+            background-color: #f5f6fa;
+            color: #2f3640;
+            margin: 40px auto;
+            max-width: 900px;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        h1 {
+            color: #192a56;
+            font-size: 2.2em;
+            margin-bottom: 5px;
+        }
+        h2 {
+            color: #0097e6;
+            border-bottom: 2px solid #0097e6;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .author-note {
+            font-size: 15px;
+            color: #fff;
+            background-color: #273c75;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .section {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 25px;
+        }
+        .video-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        video {
+            max-width: 100%;
+            border: 4px solid #dcdde1;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        code {
+            background-color: #f1f2f6;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Consolas', monospace;
+            color: #c23616;
+            font-weight: bold;
+        }
+        ol li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>QuickEye 自動化眼圖分析工具</h1>
+    <p style="font-size: 1.1em; color: #7f8fa6;">快速載入 S 參數並自動化執行高速訊號完整性眼圖分析</p>
+</div>
+
+<div class="author-note">
+    <strong>聲明：</strong>此工具由虎門科技資深技術工程師 Jeff Hong 洪敬傑 提供。
+</div>
+
+<div class="section">
+    <h2>1. 系統需求與環境安裝</h2>
+    <p>在使用本自動化工具前，請確認您的電腦已安裝 <strong>Ansys Electronics Desktop (AEDT)</strong>，並需要透過 Python 安裝以下控制依賴套件：</p>
+    <ul>
+        <li>打開命令提示字元 (cmd) 或 PowerShell，輸入以下指令安裝 PyAEDT：
+            <br><br>
+            <code>pip install pyaedt</code>
+        </li>
+    </ul>
+    <p><em>註：圖形化介面使用了 Tkinter，這通常已經預先包含在標準的 Python 系統環境中，無需另外安裝。</em></p>
+</div>
+
+<div class="section">
+    <h2>2. 操作步驟說明</h2>
+    <ol>
+        <li><strong>啟動介面：</strong> 透過 Python 執行 <code>QuickEye_Analyzer.py</code> 來開啟圖形化操作介面。</li>
+        <li><strong>選擇 AEDT 版本：</strong> 透過下拉選單選擇您電腦中已安裝的 AEDT 軟體版本 (例如 <code>2026.1</code>)。</li>
+        <li><strong>載入 S 參數：</strong> 點擊「瀏覽...」選取您的通道模型 (.s2p 或是 .s4p)。</li>
+        <li><strong>選擇訊號模式：</strong> 
+            <ul>
+                <li><strong>差動 (Differential)：</strong> 使用 .s4p 檔案，預設 Port 1, 2 為輸入，Port 3, 4 為輸出。</li>
+                <li><strong>單端 (Single-Ended)：</strong> 使用 .s2p 檔案，預設 Port 1 為輸入，Port 2 為輸出。</li>
+            </ul>
+        </li>
+        <li><strong>設定參數：</strong> 輸入傳輸速度 (Gbps) 與串接的級數，介面會自動為您推算出對應的 UI 寬度與合理的上升/下降時間 (20% UI)。</li>
+        <li><strong>指定輸出資料夾：</strong> 設定分析完成後的專案儲存位置，腳本將自動產生附有時間戳記的 <code>.aedt</code> 與眼圖結果 <code>.jpg</code> 檔案以防覆蓋。</li>
+        <li><strong>執行分析：</strong> 點選最下方的按鈕，工具便會在背景默默為您完成自動化建模、接線與模擬運算！</li>
+    </ol>
+</div>
+
+<div class="section">
+    <h2>3. 實際操作範例影片</h2>
+    <p>您可以參考下方的操作示範影片，快速了解完整的執行流程：</p>
+    <div class="video-container">
+        <video controls>
+            <source src="操作範例影片.mp4" type="video/mp4">
+            您的瀏覽器不支援 HTML5 影片播放。
+        </video>
+    </div>
+</div>
+
+</body>
+</html>
