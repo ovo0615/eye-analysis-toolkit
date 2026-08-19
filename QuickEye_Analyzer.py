@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
 QuickEye Analyzer GUI
-此工具由虎門科技資深技術工程師Jeff Hong洪敬傑提供
 參考開源程式碼來源：https://github.com/linmingchih/smart_design
 """
 
@@ -301,7 +300,7 @@ ttk.Label(frame, textvariable=status_var, foreground="green").grid(row=9, column
 run_btn = ttk.Button(frame, text="執行分析", command=run_analysis)
 run_btn.grid(row=10, column=0, columnspan=3, pady=5, ipadx=10, ipady=5)
 
-copyright_text = "此工具由虎門科技資深技術工程師Jeff Hong洪敬傑提供\n參考開源程式碼來源：https://github.com/linmingchih/smart_design"
+copyright_text = "參考開源程式碼來源：https://github.com/linmingchih/smart_design"
 ttk.Label(frame, text=copyright_text, foreground="gray", justify="center", font=("微軟正黑體", 10)).grid(row=11, column=0, columnspan=3, pady=5)
 
 calculate_time()
